@@ -1,0 +1,3 @@
+[submodule "goto-parser"]
+	path = goto-parser
+	url = https://github.com/MarionRobotics5913/goto-parser

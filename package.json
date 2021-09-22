@@ -1,22 +1,59 @@
 {
-  "name": "electron-quick-start",
+  "name": "gape",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Goto Advanced Programming Environment",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make-linux": "electron-forge make --platform linux",
+    "make-mac": "electron-forge make --platform darwin",
+    "make-windows": "electron-forge make --platform win32"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/MarionRobotics5913/gape",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "goto",
+    "ftc"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Matthew Johnson and Ray Redondo",
+  "license": "MIT",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "electron": "^14.0.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "gape"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
