@@ -15,6 +15,12 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('goto-parser/index.html')
 
+  mainWindow.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
+    details.requestHeaders['Origin'] = null;
+    details.headers['Origin'] = null;
+    callback({ requestHeaders: details.requestHeaders });
+  });
+
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
