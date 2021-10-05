@@ -17,7 +17,6 @@ function createWindow () {
 
   mainWindow.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
     details.requestHeaders['Origin'] = null;
-    details.headers['Origin'] = null;
     callback({ requestHeaders: details.requestHeaders });
   });
 
